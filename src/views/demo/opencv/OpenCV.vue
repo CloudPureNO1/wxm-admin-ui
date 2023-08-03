@@ -71,7 +71,7 @@
     // uid 有问题
     const uid = uuid.value + '-' + userData1.username
 
-    const url = 'ws://192.168.179.137:2211/wxmOpencv/socketServer'
+    const url = 'ws://192.168.1.124:2211/wxmOpencv/socketServer'
     if (ws.value && ws.value.url && ws.value.url === `${url}/${uid}`) {
       if (type !== 1) {
         console.log('已经连接...')

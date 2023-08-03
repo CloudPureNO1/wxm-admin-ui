@@ -1,0 +1,24 @@
+$base-border:1px solid var(--el-border-color);
+// $base-border: 1px solid var(--el-color-primary-light-5);
+.box-border {
+    border: $base-border;
+}
+@mixin box-height {
+    height: calc(100vh - 2px);
+}
+.draggable-index {
+    @extend .box-border;
+    @include box-height();
+
+    .left-board {
+        @include box-height();
+        border-right: $base-border;
+    }
+    .right-board {
+        @include box-height();
+        border-left: $base-border;
+    }
+    .main-board {
+        @include box-height();
+    }
+}

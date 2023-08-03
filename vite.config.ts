@@ -37,7 +37,8 @@ export default defineConfig({
     }
   },
   server: {
-    host: '192.168.179.137',
+    // host: '192.168.179.137',
+    host: '192.168.1.124',
     port: 8888,
     // 跨域配置
     // 默认地址  axios.defaults.baseURL = config.BASE_URL

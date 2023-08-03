@@ -125,7 +125,7 @@
 .wxm-menu {
   &:not(.el-menu--collapse) {
     width: 250px;
-    min-height: 400px;
+    // min-height: 400px;
   }
 
   :deep(.el-menu-item.is-disabled) {

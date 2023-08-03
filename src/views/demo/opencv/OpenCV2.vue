@@ -42,7 +42,7 @@
   }
 
   // 采用区局一个WebSocket 连接，调用拍照的时传入自己的uuid
-  const url = 'ws://192.168.179.137:2211/wxmOpencv/socketServer'
+  const url = 'ws://192.168.1.124:2211/wxmOpencv/socketServer'
   const uid = guid()  // websocket 连接的唯一id
   const wsSet = new Set<WebSocket>()
   const ws = ref<WebSocket>()

@@ -52,6 +52,12 @@ const DemoRouter = [
         name: 'OpenCV2',
         component: () => import (/* webpackChunkName: "demo" */ '../views/demo/opencv/OpenCV2.vue'),
         meta: { title: 'Menu.Demo.children.OpenCV2.title', keepAlive: '0' }/** 0 ：false */
+      },
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import (/* webpackChunkName: "demo" */ '../views/demo/table/TableTest.vue'),
+        meta: { title: 'Menu.Demo.children.Table.title', keepAlive: '0' }/** 0 ：false */
       }
     ]
   }

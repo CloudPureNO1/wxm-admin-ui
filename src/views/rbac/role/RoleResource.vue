@@ -35,7 +35,7 @@
 
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue'
-  import { ElTree } from 'element-plus'
+  import type { ElTree } from 'element-plus'
   import type { TreeNodeType } from '../../../types/type'
   import { usePostApi } from '../../../composable/ApiBaseCall'
   import { useSystemStore } from '../../../stores/system'

@@ -28,6 +28,12 @@
     "About": {
         "title": "关于"
     },
+    "Draggable": {
+        "title": "拖拽"
+    },
+    "GridLayout": {
+        "title": "VueGridLayoutV3"
+    },
     "Menu": {
         "Demo": {
             "title": "Demo",
@@ -61,6 +67,9 @@
                 },
                 "OpenCV2": {
                     "title": "OpenCV2"
+                },
+                "Table": {
+                    "title": "表格"
                 }
             }
         },

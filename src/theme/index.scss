@@ -60,22 +60,18 @@ body {
 }
 
 html,
-body {
+body,
+#app {
   margin: 0 auto;
   padding: 0;
+  height: 100%;
 }
 
-
-
-
 ul {
-
   li {
-
     list-style: none;
     overflow: hidden; //超出的文本隐藏
     white-space: nowrap; //不换行
-
   }
 }
 

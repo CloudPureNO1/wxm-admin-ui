@@ -48,4 +48,12 @@ Object.keys(directive).forEach(key => {  // Object.keys() 返回一个数组，�
   app.directive(directiveKey, (directive as { [key: string]: Directive })[key])  // key是自定义指令名字；后面应该是自定义指令的值，值类型是string
 })
 
+/**
+ * 应用级错误处理 可以用来向追踪服务报告错误：
+ */
+app.config.errorHandler = (err, instance, info) => {
+  // 向追踪服务报告错误
+  console.error('系统异常：', err, instance, info)
+}
+
 app.mount('#app')

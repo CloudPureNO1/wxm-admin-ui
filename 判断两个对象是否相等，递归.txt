@@ -1,16 +1,16 @@
       const  fEqual=(a, b)=> {
-            // �ж����������Ƿ�ָ��ͬһ�ڴ棬ָ��ͬһ�ڴ淵��true
+            // 判断两个对象是否指向同一内存，指向同一内存返回true
             if (Object.is(a,b)) return true
-            // ��ȡ���������ֵ����
+            // 获取两个对象键值数组
             let aProps = Object.getOwnPropertyNames(a)
             let bProps = Object.getOwnPropertyNames(b)
-            // �ж����������ֵ���鳤���Ƿ�һ�£���һ�·���false
+            // 判断两个对象键值数组长度是否一致，不一致返回false
             if (aProps.length !== bProps.length) return false
-            // ��������ļ�ֵ
+            // 遍历对象的键值
             for (let prop in a) {
-                // �ж�a�ļ�ֵ����b���Ƿ���ڣ������ڣ�����false
+                // 判断a的键值，在b中是否存在，不存在，返回false
                 if (b.hasOwnProperty(prop)) {
-                    // �ж�a�ļ�ֵ�Ƿ�Ϊ��������ݹ飬���Ƕ���ֱ���жϼ�ֵ�Ƿ���ȣ�����ȷ���false
+                    // 判断a的键值是否为对象，是则递归，不是对象直接判断键值是否相等，不相等返回false
                     if (typeof a[prop] === 'object') {
                         if (!fEqual(a[prop], b[prop])) return false
                     } else if (a[prop] !== b[prop]) {

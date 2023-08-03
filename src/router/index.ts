@@ -60,6 +60,18 @@ const router = createRouter({
       component: () => import ('../views/LoginView.vue')
     },
     {
+      path: '/draggable',
+      name: 'Draggable',
+      component: () => import (/* webpackChunkName: "Api" */ '../views/draggable/DraggableView.vue'),
+      meta: { title: 'Draggable.title', needLogon: 0 }// 0 不需要登录，其他 需要登录
+    },
+    {
+      path: '/gridLayout',
+      name: 'GridLayout',
+      component: () => import (/* webpackChunkName: "Api" */ '../views/gridLayout/GridLayout.vue'),
+      meta: { title: 'GridLayout.title', needLogon: 0 }// 0 不需要登录，其他 需要登录
+    },
+    {
       path: '/noticeWxmTest',
       name: 'NoticeWxmTest',
       component: () => import (/* webpackChunkName: "Api" */ '../views/rbac/notice/NoticeWxmTest.vue'),
@@ -82,7 +94,14 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from) => {
-  // console.log('>>>>from：', from)
+  // console.log('>>>>from,to：', from, to)
+  // console.log('to.meta && to.meta.needLogon && to.meta.needLogon === 0:', to.meta && to.meta.needLogon && to.meta.needLogon === 0)
+  // to.meta && to.meta.needLogon && to.meta.needLogon === 0 返回 的值为0
+  // to.meta && to.meta.needLogon === 0 返回 的值为 true
+  if (to.meta && to.meta.needLogon === 0) {
+    // console.log('***************', 1)
+    return true
+  }
   // const accessToken = sessionStorage.getItem('accessToken')
   const accessToken = localStorage.getItem('accessToken')
   let isAuthenticated = false

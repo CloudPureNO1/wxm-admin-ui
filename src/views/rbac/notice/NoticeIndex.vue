@@ -30,9 +30,11 @@
   console.log('***************', serverMsg, serverWS)
 
   type MsgType = {
+    listUid: Array<string>, // 也可以时username
     msg: string
   }
   const msgData = reactive<MsgType>({
+    listUid: [],
     msg: ''
   })
 
@@ -51,7 +53,7 @@
       })
       return false
     }
-    serverWS.value.send(msgData.msg)
+    serverWS.value.send(JSON.stringify(msgData))
   }
 
   const sendAll = () => {

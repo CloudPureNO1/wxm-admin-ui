@@ -33,6 +33,12 @@
     "About": {
         "title": "About"
     },
+    "Draggable":{
+        "title":"Draggable"
+    },
+    "GridLayout":{
+        "title":"GridLayout"
+    },
     "Menu": {
         "Demo": {
             "title": "Demo",
@@ -66,6 +72,9 @@
                 },
                 "OpenCV2": {
                     "title": "OpenCV2"
+                },
+                "Table": {
+                    "title": "Table"
                 }
             }
         },

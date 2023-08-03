@@ -79,7 +79,7 @@
   // 一个 消息，一个拍照
 
   // 消息（可用于休息推送、统计实时在线人数、即时聊天）
-  const url = 'ws://192.168.179.137:9701/wxmApi/ws-push-socket'
+  const url = 'ws://192.168.1.124:9701/wxmApi/ws-push-socket'
   const uid = guid()  // websocket 连接的唯一id
   const ws = ref<WebSocket>()
   const options = ref<string[]>([])
