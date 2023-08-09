@@ -285,6 +285,6 @@ export type TreeNodeType = {
 }
 
 export type ColType={
-    property:string,
+    prop:string,
     label:string
   }

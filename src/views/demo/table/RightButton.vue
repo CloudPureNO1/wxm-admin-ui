@@ -27,8 +27,8 @@
     Menu: 'Menu'
   }
   type ColType = {
-    property: string;
-    label: string;
+    property?: string;
+    label?: string;
   };
   const props = defineProps<{
     listColumn: ColType[];

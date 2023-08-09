@@ -17,9 +17,9 @@ export const useBuildCols = async (tableRef:any) => {
     if (item.type && (item.type === 'index' || item.type === 'selection' || item.type === 'expand')) {
       const property = item.property && !isEmpty(item.property) ? item.property : item.type
       const label = item.label && !isEmpty(item.label) ? item.label : (item.type === 'index' ? '序号' : (item.type === 'selection' ? '选择框' : '展开/隐藏'))
-      cols.value.push({ property: property, label: label })
+      cols.value.push({ prop: property, label: label })
     } else {
-      cols.value.push({ property: item.property, label: item.label })
+      cols.value.push({ prop: item.property, label: item.label })
     }
   })
   return cols.value
@@ -30,9 +30,9 @@ export const useBuildCols = async (tableRef:any) => {
  * @param property
  * @returns
  */
-export const showCol = (property?:string, selection?:Array<ColType>, num?:number) => {
-  if (!property) return true
+export const showCol = (prop?:string, selection?:Array<ColType>, num?:number) => {
+  if (!prop) return true
   if ((!selection || selection.length === 0) && (!num || num < 1)) return true
-  return selection?.some(item => item.property === property)
+  return selection?.some(item => item.prop === prop)
 }
 

@@ -37,7 +37,7 @@ export const useBuildExportData = (colList:Array<BaseType<any>>, data:Array<Base
   const exportCols:string [] = []
   const header:Array<string> = []
   const headerWidth:Array<number> = []
-  colList.filter(item => item.prop && item.prop !== 'ops').forEach(item => {
+  colList.filter(item => item.prop && item.prop !== 'ops' && item.prop !== 'index' && item.prop !== 'selection' && item.prop !== 'expand').forEach(item => {
     exportCols.push(item.prop)
     header.push(item.label)
     headerWidth.push(useStrBytesLen(item.label) * 3)

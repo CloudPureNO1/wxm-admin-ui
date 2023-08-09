@@ -1,9 +1,9 @@
 <template>
     <div class="wxm-button-search">
-        <div v-if="showSearchBox" class="wxm-search-box">
+        <div v-if="showSearchBox" class="search-box">
             <slot name="search"></slot>
         </div>
-        <div class="wxm-button-box">
+        <div class="button-box">
             <div class="button__left">
                 <el-button v-permission="buildPermission('add')" v-click-interval type="primary" :plain="plain" :icon="Plus" :size="systemStore.size" @click="callAdd" >新增</el-button>
                 <el-button v-permission="buildPermission('delete','deleteBatch')" v-click-interval type="danger" :plain="props.plain" :icon="Delete" :size="size" @click="callDelete">删除</el-button>
@@ -47,7 +47,7 @@
   } from '@element-plus/icons-vue'
 
   type ColType = {
-    property: string;
+    prop: string;
     label: string;
   };
 
