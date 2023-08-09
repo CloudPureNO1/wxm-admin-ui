@@ -58,6 +58,12 @@ const DemoRouter = [
         name: 'Table',
         component: () => import (/* webpackChunkName: "demo" */ '../views/demo/table/TableTest.vue'),
         meta: { title: 'Menu.Demo.children.Table.title', keepAlive: '0' }/** 0 ：false */
+      },
+      {
+        path: 'table2',
+        name: 'Table2',
+        component: () => import (/* webpackChunkName: "demo" */ '../views/demo/table/TableTest2.vue'),
+        meta: { title: 'Menu.Demo.children.Table2.title', keepAlive: '0' }/** 0 ：false */
       }
     ]
   }

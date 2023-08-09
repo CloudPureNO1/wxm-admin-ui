@@ -1,40 +1,33 @@
 <template>
   <div class="wxm-t-box">
+    <RightButton :listColumn="listColumn" @selection-change="handleSelectionChange"/>
     <el-table :data="tableData" style="width: 100%" ref="tableTest" border stripe >
-      <el-table-column v-if="showCol()" type="index" label="序号" width="100"></el-table-column>
-      <el-table-column v-if="showCol()" type="selection"></el-table-column>
-      <el-table-column v-if="showCol('date')" prop="date" label="时间" width="180" />
-      <el-table-column v-if="showCol('name')" prop="name" label="姓名" width="180" />
-      <el-table-column v-if="showCol('address')" prop="address" label="地址" />
+      <el-table-column v-if="showCol('index',selection,num)" type="index" label="序号" width="100"></el-table-column>
+      <el-table-column v-if="showCol('selection',selection,num)" type="selection"></el-table-column>
+      <el-table-column v-if="showCol('date',selection,num)" prop="date" label="时间" width="180" />
+      <el-table-column v-if="showCol('name',selection,num)" prop="name" label="姓名" width="180" />
+      <el-table-column v-if="showCol('address',selection,num)" prop="address" label="地址" />
     </el-table>
 
-    <div class="fn-btn__right">
-      <el-button type="primary" plain :icon="icons.Search"  size="default" @click="callToggleShowCondition" class="right-btn" />
-      <el-button  type="primary" plain :icon="icons.Refresh" size="default" @click="callReLoad" class="right-btn" />
-      <el-popover placement="bottom-start" trigger="hover" width="300">
-        <el-table :data="colsData" style="width: 100%" @selection-change="useSetSelectedCols" ref="colsTable">
-          <el-table-column type="selection" width="80" />
-          <el-table-column type="index" label="序号" width="80" />
-          <el-table-column prop="label" label="列名" width="180" />
-        </el-table>
-        <template #reference>
-          <el-button  type="primary" plain :icon="icons.Menu" size="default" class="right-btn" />
-        </template>
-      </el-popover>
-      <!-- <el-button-group>
-                    <el-button v-if="props.showSearch" :type="props.typeRight" :plain="props.plain" :icon="Search" @click="toggleSearch"/>
-                    <el-button v-if="props.showRefresh" :type="props.typeRight" :plain="props.plain" :icon="Refresh" @click="callReLoad"/>
-                    <el-button v-if="props.showGrid" :type="props.typeRight" :plain="props.plain" :icon="Grid" @click="handleGrid"/>
-                </el-button-group> -->
+    <RightButton :listColumn="listColumn1" @selection-change="handleSelectionChange1"/>
+    <el-table :data="tableData1" style="width: 100%" ref="tableTest1" border stripe >
+      <el-table-column v-if="showCol('index',selection1,num1)" type="index" label="序号1" width="100"></el-table-column>
+      <el-table-column v-if="showCol('selection',selection1,num1)" type="selection"></el-table-column>
+      <el-table-column v-if="showCol('date1',selection1,num1)" prop="date1" label="时间1" width="180" />
+      <el-table-column v-if="showCol('name1',selection1,num1)" prop="name1" label="姓名1" width="180" />
+      <el-table-column v-if="showCol('address1',selection1,num1)" prop="address1" label="地址1" />
+    </el-table>
 
-    </div>
-
+    <WxmButtonSearch :listColumn="listColumn" @selection-change="handleSelectionChange"/>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useSetSelectedCols, showCol, colsData, useSetCols } from '../../../composable/table'
+  import WxmButtonSearch from './WxmButtonSearch.vue'
+  import RightButton from './RightButton.vue'
+  import { ref, onMounted } from 'vue'
+  import { showCol, useBuildCols } from '../../../composable/table2'
+  import type { ColType } from '../../../types/type'
   const tableData = [
     {
       date: '2016-05-03',
@@ -58,20 +51,54 @@
     }
   ]
 
+  const tableData1 = [
+    {
+      date1: '2016-05-03',
+      name1: 'Tom',
+      address1: 'No. 189, Grove St, Los Angeles'
+    },
+    {
+      date1: '2016-05-02',
+      name1: 'Tom',
+      address1: 'No. 189, Grove St, Los Angeles'
+    },
+    {
+      date1: '2016-05-04',
+      name1: 'Tom',
+      address1: 'No. 189, Grove St, Los Angeles'
+    },
+    {
+      date1: '2016-05-01',
+      name1: 'Tom',
+      address1: 'No. 189, Grove St, Los Angeles'
+    }
+  ]
+
   const tableTest = ref()
-  const colsTable = ref()
+  const tableTest1 = ref()
 
-  useSetCols(tableTest, colsTable)
+  const listColumn = ref<ColType[]>([])
+  const listColumn1 = ref<ColType[]>([])
+  onMounted(async () => {
+    listColumn.value = await useBuildCols(tableTest)
+    listColumn1.value = await useBuildCols(tableTest1)
+  })
 
-  const icons = {
-    Search: 'Search',
-    Refresh: 'Refresh',
-    Grid: 'Grid',
-    Menu: 'Menu'
+  const num = ref<number>(0)
+  const num1 = ref<number>(0)
+
+  const selection = ref<ColType[]>([])
+  const selection1 = ref<ColType[]>([])
+  const handleSelectionChange = (selectionCol:ColType[]) => {
+    selection.value = selectionCol
+    num.value += 1
+    console.log('>>>>>>>>>>selection.value', selection.value)
   }
-
-  const callToggleShowCondition = () => {}
-  const callReLoad = () => {}
+  const handleSelectionChange1 = (selectionCol:ColType[]) => {
+    selection1.value = selectionCol
+    num1.value += 1
+    console.log('>>>>>>>>>>selection1.value', selection1.value)
+  }
 </script>
 
 <style scoped lang="scss">

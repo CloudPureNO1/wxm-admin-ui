@@ -284,3 +284,7 @@ export type TreeNodeType = {
     children: Array<any>
 }
 
+export type ColType={
+    property:string,
+    label:string
+  }

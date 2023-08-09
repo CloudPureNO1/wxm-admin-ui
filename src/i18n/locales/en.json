@@ -75,6 +75,9 @@
                 },
                 "Table": {
                     "title": "Table"
+                },
+                "Table2": {
+                    "title": "Table2"
                 }
             }
         },

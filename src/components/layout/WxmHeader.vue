@@ -295,7 +295,8 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
 }
 
 @mixin base {
-    line-height: var(--el-menu-item-height);
+    // line-height: var(--el-menu-item-height);
+    padding:5px 0;
     border-bottom: 1px solid var(--el-menu-border-color);
 }
 
@@ -434,8 +435,11 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
         /* display: flex; */
         /* align-items: center; */
         /* justify-content: start; */
+
+        display: flex;
+        align-items: center;
         padding-left: 10px;
-        line-height: var(--el-menu-item-height);
+        // line-height: var(--el-menu-item-height);
         border-bottom: 1px solid var(--el-menu-border-color);
         overflow: hidden;
         text-overflow: ellipsis;
@@ -461,6 +465,24 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
         color: var(--el-text-color-regular);
     }
 
+      :deep(.el-sub-menu__title) {
+    display: flex;
+    align-items: center;
+    // height: var(--el-menu-item-height);
+    height: 100% !important;
+    //  line-height: var(--el-menu-item-height);
+     line-height: 1 !important;
+    font-size: var(--el-menu-item-font-size);
+    color: var(--el-menu-text-color);
+    padding: 0 var(--el-menu-base-level-padding);
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color var(--el-transition-duration),background-color var(--el-transition-duration),color var(--el-transition-duration);
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding-right: calc(var(--el-menu-base-level-padding) + var(--el-menu-icon-width));
+}
 }
 </style>
 
