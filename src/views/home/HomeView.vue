@@ -1,5 +1,9 @@
 <template>
     <div class="wxm-home">
-        This is the HomePage!
-    </div>
+        <img :src="src" />
+        </div>
 </template>
+<script lang="ts" setup>
+  import { init } from './HomeView'
+  const { src } = init()
+</script>

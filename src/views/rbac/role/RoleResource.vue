@@ -82,8 +82,10 @@
     const nodeIdList: string[] = []
     nodes.forEach((node: TreeNodeType) => {
       if (node.isLeaf) nodeIdList.push(node.nodeId)// 勾选飞节点（叶子，按钮）
-      if (node.children) {
+      if (node.children && node.children.length !== 0) {
         nodeIdList.push(...getTreeIds(node.children))
+      } else {
+        nodeIdList.push(node.nodeId) // 节点没有子节点，则直接添加
       }
     })
     return nodeIdList

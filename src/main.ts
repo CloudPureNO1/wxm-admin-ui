@@ -29,7 +29,15 @@ import CheckOperateTime from './util/CheckOperateTime'
 // 避免main.ts 臃肿，把第三方的组件统一放入plugins中
 import plugins from './plugins'
 
+import { basePath } from './config/SysConfig'
+
+import {Global} from './config/Global'
+
 const app = createApp(App)
+
+// 注入全局变量
+app.provide('$basePath', basePath)
+app.provide('Global', Global)
 
 app.use(createPinia())
 app.use(router)

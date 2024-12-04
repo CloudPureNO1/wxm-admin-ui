@@ -1,7 +1,7 @@
 <template>
     <div class="img-cropping">
         <div class="cropper-box">
-            <vueCropper ref="cropper"
+            <VueCropper ref="cropper"
                 :img="option.img"
                 :outputSize="option.outputSize"
                 :outputType="option.outputType"
@@ -58,7 +58,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import 'vue-cropper/dist/index.css'
+  //   import 'vue-cropper/dist/index.css'
   import { VueCropper } from 'vue-cropper'
   import { lists, init } from './ts/ImageCropping'
   type Img = {

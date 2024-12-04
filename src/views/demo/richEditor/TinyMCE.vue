@@ -6,8 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, onMounted } from 'vue'
-
+  import { ref, onMounted, inject } from 'vue'
   import { useBlobToBase64 } from '../../../composable/FileConversion'
 
   import tinymce from 'tinymce/tinymce'
@@ -67,12 +66,17 @@
   // 以上所有的样式在 node_modules 下面 tinymce 里面的 plugins 都能找到。
   const tinymceHtml = ref('请输入内容')
   const editorCurrent = ref<any>()
+  // main.ts 全局主任
+  const basePath = inject('$basePath')
   const init = {
     // 初始化数据
-    emoticons_database_url: '/emoticons/js/emojis.js', // 更改表情插件路径
-    language_url: '/langs/zh-Hans.js', // 引入语言包（该语言包在public下，注意文件名称）
+    // emoticons_database_url: '/emoticons/js/emojis.js', // 更改表情插件路径
+    emoticons_database_url: `${basePath}emoticons/js/emojis.js`, // 更改表情插件路径
+    // language_url: '/wxm-admin-ui/langs/zh-Hans.js', // 引入语言包（该语言包在public下，注意文件名称）
+    language_url: `${basePath}langs/zh-Hans.js`, // 引入语言包（该语言包在public下，注意文件名称）
     language: 'zh-Hans', // 这里名称根据 zh-Hans.js 里面写的名称而定
-    skin_url: '/skins/ui/oxide', // 这里引入的样式
+    // skin_url: '/wxm-admin-ui/skins/ui/oxide', // 这里引入的样式
+    skin_url: `${basePath}skins/ui/oxide`, // 这里引入的样式
     height: 600, // 限制高度
     plugins:
       "'print preview searchreplace autolink directionality emoticons visualblocks visualchars fullscreen image link media template code codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists wordcount textpattern autosave ", // 富文本插件
@@ -120,7 +124,8 @@
     nonbreaking_force_tab: false,
     paste_auto_cleanup_on_paste: false,
     file_picker_types: 'file',
-    content_css: '/skins/content/default/content.css', // 以css文件方式自定义可编辑区域的css样式，css文件需自己创建并引入
+    // content_css: '/wxm-admin-ui/skins/content/default/content.css', // 以css文件方式自定义可编辑区域的css样式，css文件需自己创建并引入
+    content_css: `${basePath}skins/content/default/content.css`, // 以css文件方式自定义可编辑区域的css样式，css文件需自己创建并引入
     // 图片上传
     images_upload_handler: (blobInfo:any) => new Promise((resolve, reject) => {
       if (blobInfo.blob().size / 1024 / 1024 > 122) {

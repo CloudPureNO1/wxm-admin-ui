@@ -1,9 +1,13 @@
 import type { I18nOptions } from 'vue-i18n'
-import type { MessagesType } from '../types/I18nTypes'
+// import type { MessagesType } from '../types/I18nTypes'
 import { setupI18n, getLocaleLanguage } from '../composable/i18n'
 
 import en from './locales/en.json'
 import zhCN from './locales/zh-cn.json'
+
+type MessagesType={
+  [key: string]: any
+}
 
 const messages:MessagesType = {
   'en': en,

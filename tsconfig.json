@@ -3,9 +3,12 @@
   "include": [
     "env.d.ts",
     "src/**/*.vue",
-    "src/**/*"
+    "src/**/*",
+ 
   ],
   "compilerOptions": {
+    "noEmit": false,
+    "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -15,7 +18,12 @@
     "types": [
       "element-plus/global",
       "vite/client"
-    ]
+    ],
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "declaration": true, // 开启类型声明文件生成
+    "outDir": "./dist/types", // 设置类型声明文件输出目录
   },
   "references": [
     {

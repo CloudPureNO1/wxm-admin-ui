@@ -5,3 +5,7 @@ declare module 'qs'
 declare module 'vue-cropper'
 declare module 'js-md5'
 
+declare interface Window {
+    sysConfig:any,
+    url:string
+}

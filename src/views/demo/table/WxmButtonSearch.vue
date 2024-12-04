@@ -3,7 +3,7 @@
         <div v-if="showSearchBox" class="search-box">
             <slot name="search"></slot>
         </div>
-        <div class="button-box">
+        <div class="button-box" :class="[props.alignRight?'flex-end':'space-between']">
             <div class="button__left">
                 <el-button v-permission="buildPermission('add')" v-click-interval type="primary" :plain="plain" :icon="Plus" :size="systemStore.size" @click="callAdd" >新增</el-button>
                 <el-button v-permission="buildPermission('delete','deleteBatch')" v-click-interval type="danger" :plain="props.plain" :icon="Delete" :size="size" @click="callDelete">删除</el-button>
@@ -36,15 +36,7 @@
   import { isEmpty } from 'lodash'
   import { useSystemStore } from '../../../stores/system'
 
-  import {
-    Plus,
-    Delete,
-    Download,
-    Printer,
-    Refresh,
-    Search,
-    Menu
-  } from '@element-plus/icons-vue'
+  import { Plus, Delete, Download, Printer, Refresh, Search, Menu } from '@element-plus/icons-vue'
 
   type ColType = {
     prop: string;
@@ -56,6 +48,9 @@
     permissionPrefix?: string;
     plain?: boolean;
     typeRight?: any;
+
+    // 左边的功能按钮，是否居右
+    alignRight: boolean,
 
     showSearch?: boolean;
     showRefresh?: boolean;
@@ -69,6 +64,9 @@
     permissionPrefix: undefined,
     plain: true,
     typeRight: 'primary',
+
+    // 左边的功能按钮，是否居右
+    alignRight: false,
 
     showSearch: true,
     showRefresh: true,

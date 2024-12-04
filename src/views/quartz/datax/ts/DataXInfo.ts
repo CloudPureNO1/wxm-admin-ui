@@ -243,7 +243,6 @@ export const init = () => {
     visible(false)
   }
   const doEdit = async () => {
-    debugger
     const params = {
       transCode: '13001',
       triggerIn: row.value,

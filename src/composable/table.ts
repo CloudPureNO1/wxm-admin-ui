@@ -13,7 +13,7 @@ export const useBuildCols = async (tableRef:any) => {
   const columnRows = tableRef.value.$refs.tableHeaderRef.columnRows[0]
   columnRows.forEach((item:any) => {
     if (item.property && item.label) {
-      cols.value.push({ property: item.property, label: item.label })
+      cols.value.push({ prop: item.property, label: item.label })
     }
   })
   return cols.value
@@ -32,13 +32,13 @@ export const useSetSelectedCols = (selection:Array<ColType>) => {
 
 /**
  * 数据表格中用于判断是否显示的方法
- * @param property
+ * @param prop
  * @returns
  */
-export const showCol = (property?:string) => {
-  if (!property) return true
+export const showCol = (prop?:string) => {
+  if (!prop) return true
   if (!colsData.value || colsData.value.length === 0) return true
-  return selectedCols.value.some(item => item.property === property)
+  return selectedCols.value.some(item => item.prop === prop)
 }
 
 /**

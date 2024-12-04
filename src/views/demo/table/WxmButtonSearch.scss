@@ -1,5 +1,6 @@
 .wxm-button-search {
     padding: 0;
+    width: 100%;
 
     .search-box {
         font-weight: 500;
@@ -10,7 +11,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         .button__left {
             padding: 0 10px 0 0;
@@ -34,5 +35,13 @@
                 }
             }
         }
+
+
+    }
+    .space-between{
+        justify-content: space-between;
+    }
+     .flex-end{
+        justify-content: flex-end;
     }
 }

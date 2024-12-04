@@ -1,4 +1,3 @@
-
 <template>
     <div class="header" @dblclick="layoutStore.toggleFullScreen">
         <div v-if="layoutStore.isVertical"
@@ -17,13 +16,13 @@
             <div else class="title">&nbsp;</div>
         </div>
         <!-- 系统标题 水平-->
-        <div v-if="!layoutStore.isVertical" class="header-title">{{$t('SYSTEM_NAME')}}</div>
+        <div v-if="!layoutStore.isVertical" class="header-title">{{ $t('SYSTEM_NAME') }}</div>
         <!-- 菜单 水平 -->
         <wxm-menu v-if="!layoutStore.isVertical" key="header-menu" class="header-menu" />
         <div class="header-right">
             <!-- 全屏 -->
             <div class="dark item" @click="layoutStore.toggleFullScreen">
-                <template v-if="!layoutStore.fullScreen" >
+                <template v-if="!layoutStore.fullScreen">
                     <svg-icon name="full-screen" class="icon-svg" />
                 </template>
                 <template v-else>
@@ -31,7 +30,7 @@
                 </template>
             </div>
             <!-- 国际化 -->
-        <!---element plus el-dropdown 默认中  2.2.34 样式有问题，且不支持自定义元素，采用2.2.30 支持
+            <!---element plus el-dropdown 默认中  2.2.34 样式有问题，且不支持自定义元素，采用2.2.30 支持
 
 Dropdown-Menu Slots#
 插槽名	说明	子标签
@@ -50,11 +49,11 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
                     <el-dropdown-menu>
                         <el-dropdown-item @click="changeLocale('zh-cn')">
                             <svg-icon name="zh-cn" class="icon-svg" /><span style="margin-left:10px;">{{
-                                $t('Home.I18n.zhCn') }}</span>
+        $t('Home.I18n.zhCn') }}</span>
                         </el-dropdown-item>
                         <el-dropdown-item @click="changeLocale('en')">
                             <svg-icon name="en" class="icon-svg" /><span style="margin-left:10px;">{{ $t('Home.I18n.en')
-                            }}</span>
+                                }}</span>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
@@ -66,21 +65,21 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
                     <el-dropdown-menu>
                         <el-dropdown-item @click="changeSize('large')">
                             &nbsp;<svg-icon name="font-size-large" class="icon-svg" /><span style="margin-left:10px;">{{
-                                $t('Home.sizeLarge') }}</span>
+        $t('Home.sizeLarge') }}</span>
                         </el-dropdown-item>
                         <el-dropdown-item @click="changeSize('default')">
                             <svg-icon name="font-size-default" class="icon-svg" /><span style="margin-left:10px;">{{
-                                $t('Home.sizeDefault') }}</span>
+        $t('Home.sizeDefault') }}</span>
                         </el-dropdown-item>
                         <el-dropdown-item @click="changeSize('small')">
                             &nbsp;<svg-icon name="font-size-small" class="icon-svg" /><span style="margin-left:10px;">{{
-                                $t('Home.sizeSmall') }}</span>
+        $t('Home.sizeSmall') }}</span>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
 
-             <!--   effect="customized"  el-dropdown 默认中  2.2.34 样式有问题，且不支持自定义元素，采用2.2.30 支持-->
+            <!--   effect="customized"  el-dropdown 默认中  2.2.34 样式有问题，且不支持自定义元素，采用2.2.30 支持-->
             <!-- <el-tooltip effect="customized">
                 <div class="item w-color"><svg-icon name="i18n" class="icon-svg" /></div>
                 <template #content>
@@ -143,7 +142,8 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
                     <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item icon="User">{{ $t('Home.personalCenter') }}</el-dropdown-item>
-                            <el-dropdown-item icon="SwitchButton" @click="loginOut">{{ $t('Home.exit') }}</el-dropdown-item>
+                            <el-dropdown-item icon="SwitchButton" @click="loginOut">{{ $t('Home.exit')
+                                }}</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -155,27 +155,27 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
                         <el-dropdown-menu>
                             <el-dropdown-item @click="changeMode('horizontal')">
                                 <svg-icon name="layout-01" /><span style="margin-left:10px;">{{
-                                    $t('Home.Layout.topAndBottom') }}</span>
+        $t('Home.Layout.topAndBottom') }}</span>
                             </el-dropdown-item>
                             <el-dropdown-item @click="layoutStore.changeLayout('header-main')">
                                 <svg-icon name="layout-02" /><span style="margin-left:10px;">{{
-                                    $t('Home.Layout.TopAndLeftAndRight') }}</span>
+        $t('Home.Layout.TopAndLeftAndRight') }}</span>
                             </el-dropdown-item>
                             <el-dropdown-item @click="layoutStore.changeLayout('aside-main')">
                                 <svg-icon name="layout-02" /><span style="margin-left:10px;">{{
-                                    $t('Home.Layout.LeftAndRight') }}</span>
+        $t('Home.Layout.LeftAndRight') }}</span>
                             </el-dropdown-item>
                             <el-dropdown-item @click="layoutStore.toggleShowTags">
                                 <svg-icon name="switch-tags" /><span style="margin-left:10px;">{{ $t('Home.showTags')
-                                }}</span>
+                                    }}</span>
                             </el-dropdown-item>
                             <el-dropdown-item @click="layoutStore.changeMenuBgColor('')">
                                 <svg-icon name="switch-tags" /><span style="margin-left:10px;">{{
-                                    $t('Home.MenuColor.default') }}</span>
+        $t('Home.MenuColor.default') }}</span>
                             </el-dropdown-item>
                             <el-dropdown-item @click="layoutStore.changeMenuBgColor('#2c3e50')">
                                 <svg-icon name="switch-tags" /><span style="margin-left:10px;">{{
-                                    $t('Home.MenuColor.2c3e50') }}</span>
+        $t('Home.MenuColor.2c3e50') }}</span>
                             </el-dropdown-item>
                             <el-dropdown-item @click="layoutStore.changeMenuBgColor('#409eff')">
                                 <svg-icon name="switch-tags" /><span style="margin-left:10px;">{{
@@ -186,7 +186,6 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
                 </el-dropdown>
             </div>
         </div>
-
     </div>
     <el-dialog v-model="dialogVisible" title="" top="5vh" width="80%" :fullscreen="dialogFullscreen"
         :close-on-press-escape="false" :close-on-click-modal="false" class="datax-info-dialog">
@@ -204,13 +203,15 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
     </el-dialog>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup type="module">
 //   import UserCenter from './UserCenter.vue'
   import { ref, provide } from 'vue'
   import type { Ref } from 'vue'
+
   import { useRouter } from 'vue-router'
   import { ElMessage } from 'element-plus'
   import { useToggleDark, isDark } from '../../composable/dark'
+  import { useGetImageUrl } from '../../composable/staticImgUtil'
   import { useLayoutStore } from '../../stores/layout'
   import { useSystemStore } from '../../stores/system'
   import Http from '../../util/axios/axios-util'
@@ -236,13 +237,10 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
   const shape = ref<any>('circle')
   const fit = ref<any>('cover')
   const src: Ref<string> = ref('')  // 或者  const srt=ref<string>('')
-  /**
-   * 加载图片资源方法
-   */
-  const useLoadImg = (path: string) => {
-    return new URL(path, import.meta.url).href
-  }
-  src.value = useLoadImg('../../assets/img/9.gif')
+
+  src.value = useGetImageUrl('9.gif')
+
+  //   console.log('>>>>>>>>>avator：>>>>>>', src.value)
 
   const loginOut = () => {
     // 调用logout接口，退出登录
@@ -296,7 +294,7 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
 
 @mixin base {
     // line-height: var(--el-menu-item-height);
-    padding:5px 0;
+    padding: 5px 0;
     border-bottom: 1px solid var(--el-menu-border-color);
 }
 
@@ -465,24 +463,24 @@ dropdown	下拉列表，通常是 <el-dropdown-menu> 组件	Dropdown-Menu
         color: var(--el-text-color-regular);
     }
 
-      :deep(.el-sub-menu__title) {
-    display: flex;
-    align-items: center;
-    // height: var(--el-menu-item-height);
-    height: 100% !important;
-    //  line-height: var(--el-menu-item-height);
-     line-height: 1 !important;
-    font-size: var(--el-menu-item-font-size);
-    color: var(--el-menu-text-color);
-    padding: 0 var(--el-menu-base-level-padding);
-    list-style: none;
-    cursor: pointer;
-    position: relative;
-    transition: border-color var(--el-transition-duration),background-color var(--el-transition-duration),color var(--el-transition-duration);
-    box-sizing: border-box;
-    white-space: nowrap;
-    padding-right: calc(var(--el-menu-base-level-padding) + var(--el-menu-icon-width));
-}
+    :deep(.el-sub-menu__title) {
+        display: flex;
+        align-items: center;
+        // height: var(--el-menu-item-height);
+        height: 100% !important;
+        //  line-height: var(--el-menu-item-height);
+        line-height: 1 !important;
+        font-size: var(--el-menu-item-font-size);
+        color: var(--el-menu-text-color);
+        padding: 0 var(--el-menu-base-level-padding);
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        transition: border-color var(--el-transition-duration), background-color var(--el-transition-duration), color var(--el-transition-duration);
+        box-sizing: border-box;
+        white-space: nowrap;
+        padding-right: calc(var(--el-menu-base-level-padding) + var(--el-menu-icon-width));
+    }
 }
 </style>
 

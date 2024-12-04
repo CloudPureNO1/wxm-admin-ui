@@ -4,20 +4,30 @@
             <div class="header">
                 <div class="title">
                     <span class="pad">
-                        <span class="icon">丨</span>
-                        <span>{{ props.title }}</span>
-                        <span class="msg">{{ props.msg }}</span>
-                        <el-popover  :width="multiMsgWidth" placement="top-start">
+                        <span v-if="!isEmpty(props.title)">
+                            <span class="icon">丨</span>
+                            <span>{{ props.title }}</span>
+                        </span>
+                        <span v-if="!isEmpty(props.msg)" class="msg">{{ props.msg }}</span>
+                        <!-- <el-popover v-if="!isEmpty(props.multiMsg)" :width="multiMsgWidth" placement="top-start">
                             <template #reference>
-                                <el-icon  class="multi-icon"><QuestionFilled style="color:#409eff;"/></el-icon>
+                                <el-icon class="multi-icon">
+                                    <QuestionFilled style="color:#409eff;" />
+                                </el-icon>
                             </template>
                             <span v-html="props.multiMsg"></span>
-                        </el-popover>
+                        </el-popover> -->
                     </span>
-                    <div class="btn">
-                        <slot name="btn" class="el-button"> </slot>
-                    </div>
                 </div>
+                <div class="btn">
+                    <slot name="btn" class="el-button"> </slot>
+                </div>
+                <el-popover v-if="!isEmpty(props.multiMsg)" :width="multiMsgWidth" placement="top-start">
+                    <template #reference>
+                        <el-button type="primary" plain :icon="QuestionFilled" class="right-btn"></el-button>
+                    </template>
+                    <span v-html="props.multiMsg"></span>
+                </el-popover>
             </div>
             <div class="search">
                 <slot name="search"></slot>
@@ -30,6 +40,8 @@
 </template>
 
 <script setup lang="ts">
+  import { QuestionFilled } from '@element-plus/icons-vue'
+  import { isEmpty } from 'lodash'
   const props = defineProps({
     title: { type: String, default: '' },
     // 总金额=医保支付金额+自费金额
@@ -56,32 +68,47 @@
             background-color: var(--el-fill-color-light);
             padding: 5px 10px 5px 10px;
 
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
             .title {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
 
+                // width: 100%;
+                margin-right: 10px;
+
                 .msg {
-                    margin-left: 20px;
+                    margin: 0 20px;
                     color: #3ca0f6;
                     font-weight: 500;
                 }
-               .multi-icon {
-                    margin-left: 20px;
+
+                .multi-icon {
+                    // margin-left: 20px;
                     font-weight: 500;
                 }
+
                 .multi-msg {
                     font-size: var(--el-font-size-base);
                     color: #F56C6C !important;
                 }
+
                 .pad {
                     padding: 1px;
                 }
             }
-            .btn{
+
+            .btn {
                 display: flex;
                 align-content: center;
+                width:100%;
+                // width:auto;
+                flex: 1;
+                // padding: 0 0 0 1rem;
             }
 
             span {
@@ -97,6 +124,24 @@
             .border-line {
                 border-bottom: 2px solid #cecece;
                 padding: 5px;
+            }
+
+            .right-btn {
+                margin-left: 0 !important;
+                border-radius: 0 !important;
+
+                // &:first-of-type{
+                //     border-right:0 !important;
+                // }
+                &:first-of-type {
+                    border-right: 1px solid var(--el-color-primary-light-5) !important;
+                    border-left: 0 !important;
+                }
+
+                // &:not(:first-of-type) {
+                //     //color:red !important;
+                //     border-left: 0 !important;
+                // }
             }
         }
 

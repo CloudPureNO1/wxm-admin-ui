@@ -11,12 +11,7 @@ const DemoRouter = [
         component: () => import (/* webpackChunkName: "demo" */ '../views/demo/richEditor/TinyMCE.vue'),
         meta: { title: 'Menu.Demo.children.Tinymce.title' }
       },
-      {
-        path: 'imageCroppingMyself',
-        name: 'ImageCroppingMyself',
-        component: () => import (/* webpackChunkName: "demo" */ '../views/demo/img/ImageCroppingMyself.vue'),
-        meta: { title: 'Menu.Demo.children.ImageCroppingMyself.title' }
-      },
+
       {
         path: 'imageCropping',
         name: 'ImageCropping',

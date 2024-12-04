@@ -7,8 +7,8 @@
  */
 
 import { inject, ref } from 'vue'
-import { useLoadImg } from '../../../composable/staticImgUtil'
-import { useUploadBase64File } from '../../../composable/FileUpload'
+import { useGetImageUrl } from '../../../composable/staticImgUtil'
+// import { useUploadBase64File } from '../../../composable/FileUpload'
 type Img = {
   img: string
 }
@@ -52,52 +52,52 @@ interface Options {
 }
 
 export const lists = ref<Array<Img>>([
-  { img: useLoadImg('../../../../../src/assets/img/1122.png') },
-  { img: useLoadImg('../../../../../src/assets/img/11.png') },
-  { img: useLoadImg('../../../../../src/assets/img/12.png') },
+  { img: useGetImageUrl('1122.png') },
+  { img: useGetImageUrl('11.png') },
+  { img: useGetImageUrl('12.png') },
 
-  { img: useLoadImg('../../../../../src/assets/img/1102.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1103.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1104.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1105.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1106.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1107.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1108.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1109.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1110.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1111.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1112.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1113.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1114.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1115.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1116.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1117.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1118.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1119.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1120.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1121.jpeg') },
+  { img: useGetImageUrl('1102.jpeg') },
+  { img: useGetImageUrl('1103.jpeg') },
+  { img: useGetImageUrl('1104.jpeg') },
+  { img: useGetImageUrl('1105.jpeg') },
+  { img: useGetImageUrl('1106.jpeg') },
+  { img: useGetImageUrl('1107.jpeg') },
+  { img: useGetImageUrl('1108.jpeg') },
+  { img: useGetImageUrl('1109.jpeg') },
+  { img: useGetImageUrl('1110.jpeg') },
+  { img: useGetImageUrl('1111.jpeg') },
+  { img: useGetImageUrl('1112.jpeg') },
+  { img: useGetImageUrl('1113.jpeg') },
+  { img: useGetImageUrl('1114.jpeg') },
+  { img: useGetImageUrl('1115.jpeg') },
+  { img: useGetImageUrl('1116.jpeg') },
+  { img: useGetImageUrl('1117.jpeg') },
+  { img: useGetImageUrl('1118.jpeg') },
+  { img: useGetImageUrl('1119.jpeg') },
+  { img: useGetImageUrl('1120.jpeg') },
+  { img: useGetImageUrl('1121.jpeg') },
 
-  { img: useLoadImg('../../../../../src/assets/img/1124.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1125.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1126.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1127.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1128.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1129.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1130.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1131.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1132.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1133.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1134.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1135.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1136.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1137.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1138.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1139.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1140.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1141.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1142.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1143.jpeg') },
-  { img: useLoadImg('../../../../../src/assets/img/1144.jpeg') }
+  { img: useGetImageUrl('1124.jpeg') },
+  { img: useGetImageUrl('1125.jpeg') },
+  { img: useGetImageUrl('1126.jpeg') },
+  { img: useGetImageUrl('1127.jpeg') },
+  { img: useGetImageUrl('1128.jpeg') },
+  { img: useGetImageUrl('1129.jpeg') },
+  { img: useGetImageUrl('1130.jpeg') },
+  { img: useGetImageUrl('1131.jpeg') },
+  { img: useGetImageUrl('1132.jpeg') },
+  { img: useGetImageUrl('1133.jpeg') },
+  { img: useGetImageUrl('1134.jpeg') },
+  { img: useGetImageUrl('1135.jpeg') },
+  { img: useGetImageUrl('1136.jpeg') },
+  { img: useGetImageUrl('1137.jpeg') },
+  { img: useGetImageUrl('1138.jpeg') },
+  { img: useGetImageUrl('1139.jpeg') },
+  { img: useGetImageUrl('1140.jpeg') },
+  { img: useGetImageUrl('1141.jpeg') },
+  { img: useGetImageUrl('1142.jpeg') },
+  { img: useGetImageUrl('1143.jpeg') },
+  { img: useGetImageUrl('1144.jpeg') }
 ])
 
 export const init = (img:string | ArrayBuffer | undefined) => {
@@ -114,7 +114,7 @@ export const init = (img:string | ArrayBuffer | undefined) => {
   const src = ref<string>('')
 
   const option = ref<Options>({
-    img: img || useLoadImg('../../../../../src/assets/img/1122.png'),
+    img: img || useGetImageUrl('1122.png'),
     outputSize: 1,
     outputType: 'jpg',
     autoCrop: true,

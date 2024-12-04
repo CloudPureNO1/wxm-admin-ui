@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+﻿import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 import screenfull from 'screenfull'
@@ -12,7 +12,8 @@ export const useLayoutStore = defineStore('layoutStore', () => {
   const mode = ref<any>('vertical') // horizontal / vertical   菜单模式
   const layoutMode = ref<string>('aside-main') // aside-main / header-main   菜单模式  左右  、上下  默认上下
   const keepAliveList = ref<string[]>([])
-  const menuBgColor = ref<string>('') // 默认透明与不设置一致  #2c3e50
+  // const menuBgColor = ref<string>('') // 默认透明与不设置一致  #2c3e50
+  const menuBgColor = ref<string>('#409eff') // 默认透明与不设置一致  #2c3e50
 
   // getters
   const isVertical = computed(() => {
@@ -85,6 +86,13 @@ export const useLayoutStore = defineStore('layoutStore', () => {
       console.log('>>>>>当前浏览器不支持全屏>>>>')
     }
   }
+  const toggleFullScreenEsc = () => {
+    fullScreen.value = false
+    if (fullScreen.value) {
+      screenfull.toggle()
+    }
+  }
+
   const changeMenuBgColor = (bgColor:string) => {
     menuBgColor.value = bgColor
   }
@@ -92,7 +100,7 @@ export const useLayoutStore = defineStore('layoutStore', () => {
   return {
     collapse, fullScreen, showTags, mode, layoutMode, keepAliveList, menuBgColor,
     isVertical, isHeaderMain, getMenuBgColor, getMenuTextColor, getMenuActiveTextColor,
-    toggleCollapse, addKeepAliveList, toggleShowTags, changeMode, changeLayout, toggleFullScreen, changeMenuBgColor
+    toggleCollapse, addKeepAliveList, toggleShowTags, changeMode, changeLayout, toggleFullScreen, changeMenuBgColor, toggleFullScreenEsc
 
   }
 })

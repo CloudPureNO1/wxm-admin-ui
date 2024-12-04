@@ -21,9 +21,9 @@
     <WxmButtonSearch :listColumn="listColumn" @selection-change="handleSelectionChange"/>
     <el-divider />
 
-    <WsmPanel title="测试2" msg="总金额=医保基金支付金额+医院支付金额" :multiMsg="multiMsg" :multiMsgWidth="300">
+    <WsmPanel title="人员基本信息" msg="总金额=医保支付金额+医疗机构支付金额" :multi-msg="multiMsg" :multi-msg-width="300">
       <template #btn>
-         <WxmButtonSearch permission-prefix="demo" :listColumn="listColumn2" @toggle-condition="toggleCondition" @selection-change="handleSelectionChange2" @export="callExport"/>
+         <WxmButtonSearch permission-prefix="demo" :listColumn="listColumn2"  align-right @toggle-condition="toggleCondition" @selection-change="handleSelectionChange2" @export="callExport"/>
       </template>
 
       <template v-if="showSearch" #search>
@@ -162,7 +162,7 @@
   const size = computed(() => {
     return systemStore.size
   })
-  const multiMsg = `<div style="color:#F56C6C;">
+  const multiMsg = `<div style="color:#4093ff;">
       <p>提示：</p>
       <p>支付方式：分为医保基金支付和医院支付</p>
       <p>总金额=医保基金支付金额+医院支付金额</p>

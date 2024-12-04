@@ -8,14 +8,72 @@
   <link rel="icon" href="/wxm-datax.ico" />
   <!-- <link rel="icon" href="/favicon.ico" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>wxm-admin-ui</title>
+  <title>管理系统</title>
+
+
+  
+    <!-- electrong-titlebar 实现 放入app中，便于全局使用和控制 -->
+    <!-- <style lang="css">
+    html,
+    body {
+      margin: 0;
+      /* 禁止 html,body 滚动，避免滚动条出现在标题栏右边 */
+      overflow: hidden;
+      height: 100%;
+    }
+  
+    .root {
+      /* 使用 flex 来实现 */
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background-color: black;
+      color: white;
+    }
+  
+    .custom-titlebar {
+      display: flex;
+      align-items: center;
+      /* 避免被收缩 */
+      flex-shrink: 0;
+      /* 高度与 main.js 中 titleBarOverlay.height 一致  */
+      height: 30px;
+      width: 100%;
+      /* 标题栏始终在最顶层（避免后续被 Modal 之类的覆盖） */
+      z-index: 9999;
+      background-color: #2f3241;
+      /* ​    color:#fff; */
+      padding-left: 12px;
+      font-size: 14px;
+      color: #fff;
+    }
+  
+    .content {
+      /* 内容区需要设置可滚动 */
+      overflow: auto;
+    }
+  
+    .custom-titlebar {
+      /* ... 省略其他样式 */
+      /* 避免选中窗口标题 */
+      user-select: none;
+      -webkit-user-select: none;
+      /* 设置该属性表明这是可拖拽区域，用来移动窗口 */
+      -webkit-app-region: drag;
+    }
+  </style> -->
 </head>
 
 <body>
+  <!-- electrong-titlebar 实现 放入app中，便于全局使用和控制 -->
+  <!-- <div v-show="!layoutStore.fullScreen" class="custom-titlebar"> 管理系统 </div> -->
   <!-- 默哀（灰色）模式 -->
   <!-- <div id="app" class="wxm-grey"></div> -->
   <div id="app"></div>
+
+ 
   <script type="module" src="/src/main.ts"></script>
+ 
 </body>
 
 </html>

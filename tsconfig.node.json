@@ -4,10 +4,15 @@
     "vite.config.*",
     "vitest.config.*",
     "cypress.config.*",
-    "playwright.config.*"
+    "playwright.config.*",
+
+    // 自定义配置
+    "src/config/SysConfig.tsnfig.ts",
   ],
   "compilerOptions": {
+    "ignoreDeprecations":"5.0",
     "composite": true,
+   
     "types": [
       "node"
     ]

@@ -1,66 +1,64 @@
 <template>
-    <div class="login-main">
+  <div class="login-main">
+    <div class="login-main-form">
+      <div class="login-title">管理系统</div>
+      <el-form :model="loginForm" status-icon :rules="rules" ref="loginFormRef">
+        <el-form-item label="" prop="username">
+          <el-tooltip content="用户名" placement="top" effect="light">
+            <el-input v-model="loginForm.username" placeholder="请输入用户名" :size="size"
+              @keyup.enter="submitForm(loginFormRef)" ref="usernameRef">
+              <template #prefix>
+                <el-icon>
+                  <UserFilled />
+                </el-icon>
+              </template>
+            </el-input>
+          </el-tooltip>
+        </el-form-item>
+        <el-form-item label="" prop="password">
+          <el-tooltip content="密码" placement="top" effect="light">
+            <el-input v-model="loginForm.password" placeholder="请输入密码" :size="size" show-password
+              @keyup.enter="submitForm(loginFormRef)">
+              <template #prefix>
+                <el-icon>
+                  <Lock />
+                </el-icon>
+              </template>
+            </el-input>
+          </el-tooltip>
+        </el-form-item>
+        <el-form-item label="" prop="verifyCode">
+          <el-row>
+            <el-col :span="14">
+              <el-tooltip content="验证码" placement="top" effect="light" :size="size">
+                <el-input v-model="loginForm.verifyCode" placeholder="请输入验证码" :size="size" prefix-icon=""
+                  @keyup.enter="submitForm(loginFormRef)" />
+              </el-tooltip>
+            </el-col>
+            <el-col :span="10">
+              <span @click="refreshCode">
+                <verify-code :identifyCode="identifyCode" :fontSizeMax="35" :contentHeight="36" />
+              </span>
+            </el-col>
+          </el-row>
+        </el-form-item>
+      </el-form>
+      <!-- <el-button type="primary"  :size="size" class="login-btn">登录</el-button>-->
 
-        <div class="login-main-form">
-            <div class="login-title">后台管理系统</div>
-            <el-form :model="loginForm" status-icon :rules="rules" ref="loginFormRef">
-                <el-form-item label="" prop="username">
-                    <el-tooltip content="用户名" placement="top" effect="light">
-                        <el-input v-model="loginForm.username" placeholder="请输入用户名" :size="size"
-                            @keyup.enter="submitForm(loginFormRef)" ref="usernameRef">
-                            <template #prefix>
-                                <el-icon>
-                                    <UserFilled />
-                                </el-icon>
-                            </template>
-                        </el-input>
-                    </el-tooltip>
-                </el-form-item>
-                <el-form-item label="" prop="password">
-                    <el-tooltip content="密码" placement="top" effect="light">
-                        <el-input v-model="loginForm.password" placeholder="请输入密码" :size="size" show-password
-                            @keyup.enter="submitForm(loginFormRef)">
-                            <template #prefix>
-                                <el-icon>
-                                    <Lock />
-                                </el-icon>
-                            </template>
-                        </el-input>
-                    </el-tooltip>
-                </el-form-item>
-                <el-form-item label="" prop="verifyCode">
-                    <el-row>
-                        <el-col :span="14">
-                            <el-tooltip content="验证码" placement="top" effect="light" :size="size">
-                                <el-input v-model="loginForm.verifyCode" placeholder="请输入验证码" :size="size"
-                                    prefix-icon="" @keyup.enter="submitForm(loginFormRef)" />
-                            </el-tooltip>
-                        </el-col>
-                        <el-col :span="10">
-                            <span @click="refreshCode">
-                                     <verify-code :identifyCode="identifyCode" :fontSizeMax="35"
-                                    :contentHeight="36" />
-                            </span>
-                        </el-col>
-                    </el-row>
-                </el-form-item>
-            </el-form>
-            <!-- <el-button type="primary"  :size="size" class="login-btn">登录</el-button>-->
-
-            <div style="width:100%;">
-                <div style="width:48%;float:left;">
-                    <el-button type="info" :size="size" class="login-btn" plain @click="resetForm(loginFormRef)">重置
-                    </el-button>
-                </div>
-                <div style="width:4%;float:left;">&nbsp;</div>
-                <div style="width:48%;float:left;">
-                    <el-button type="primary" :size="size" class="login-btn" @click="submitForm(loginFormRef)">登录
-                    </el-button>
-                </div>
-            </div>
-
+      <div style="width:100%;">
+        <div style="width:48%;float:left;">
+          <el-button type="info" :size="size" class="login-btn" plain @click="resetForm(loginFormRef)">重置
+          </el-button>
         </div>
+        <div style="width:4%;float:left;">&nbsp;</div>
+        <div style="width:48%;float:left;">
+          <el-button type="primary" :size="size" class="login-btn" @click="submitForm(loginFormRef)">登录
+          </el-button>
+        </div>
+      </div>
+
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -75,6 +73,16 @@
   import {
     UserFilled, Lock
   } from '@element-plus/icons-vue'
+
+  // import { ipcRenderer } from 'electron'
+  // import { useLayoutStore } from '../stores/layout'
+  // const layoutStore = useLayoutStore()
+  // ipcRenderer.on('escape-key-pressed', () => {
+  //   // 在这里处理Esc键事件
+  //   console.log('Esc key pressed in the renderer process.')
+  //   layoutStore.toggleFullScreenEsc()
+  // })
+
   interface LoginData {
     username: string,
     password: string,

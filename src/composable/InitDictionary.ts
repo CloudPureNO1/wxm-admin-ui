@@ -4,7 +4,7 @@ import { useOthersStore } from '../stores/others'
 import type { DictType, ResultType } from '../types/type'
 // import { DictStateKeyData } from '../comm/Data'
 import { useAlert } from './commFn'
-import { useLineToCamel } from './StringConversion'
+import { useLineToCamel } from './stringConversion'
 
 import { usePostTo } from './HttpApi'
 const rbacStore = useRbacStore()

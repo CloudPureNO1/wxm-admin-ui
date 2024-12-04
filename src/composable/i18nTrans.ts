@@ -12,7 +12,7 @@
 import i18n from '../i18n/index'
 import { isComposer, setLocale, getLocale } from './i18n'
 
-import { firstLetter2lowercase } from './StringConversion'
+import { firstLetter2lowercase } from './stringConversion'
 
 export const useLocaleMsg = (key:string) => {
   /**
