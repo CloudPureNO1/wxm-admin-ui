@@ -1,7 +1,7 @@
 
 <template>
   <!-- electrong-titlebar 实现 放入app中，便于全局使用和控制 -->
-  <div v-show="!layoutStore.fullScreen" class="custom-titlebar"> 管理系统 </div>
+  <!-- <div v-show="!layoutStore.fullScreen" class="custom-titlebar"> 管理系统 </div> -->
   <el-config-provider :size="systemStore.size" :z-index="systemStore.zIndex" :locale="locale">
     <RouterView />
   </el-config-provider>
